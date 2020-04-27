@@ -1,6 +1,5 @@
-
-
-
+const render = new Renderer()
+const apiManager = new apiManager()
 
 
 
