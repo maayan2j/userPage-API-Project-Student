@@ -3,13 +3,13 @@ class Renderer {
 
     constructor(){
         //Main User 
-        this.mainUserSource = $(`quote-template`).html()
+        this.mainUserSource = $(`#user-template`).html()
         this.mainUserTemplate = Handlebars.compile(this.mainUserSource)
         //Friends 
-        this.friendsSource = $(`quote-template`).html()
+        this.friendsSource = $(`#friends-template`).html()
         this.friendsTemplate = Handlebars.compile(this.friendsSource)
         //Kanye Quote
-        this.quoteSource = $(`quote-template`).html()
+        this.quoteSource = $(`#quote-template`).html()
         this.quoteTemplate = Handlebars.compile(this.qouteSource)
         //Pokemon 
         // this.pokemonSource = $(`pokemon-template`).html()
@@ -18,14 +18,14 @@ class Renderer {
     }
     
     renderQuote(mainUser){
-        const newQuote = this.sourceTemplate({quote: kanyeQuote})
-        $(`.quote-container`).append(newQuote)
+        const newMainUser = this.mainUserTemplate(mainUser)
+        $(`.user-container`).append(newMainUser)
     }
 
     
-    renderQuote(kanyeQuote){
-        const newQuote = this.sourceTemplate({quote: kanyeQuote})
-        $(`.quote-container`).append(newQuote)
+    renderQuote(Friends){
+        const newFriends = this.friendsTemplate(Friends)
+        $(`.friends-container`).append(newFriends)
     }
 
 
@@ -34,7 +34,9 @@ class Renderer {
         $(`.quote-container`).append(newQuote)
     }
 
-
+    // renderPokemon(Pokemon){
+    //     const newPokemon = this.pokemonTemplate({Pokemon})
+    //     $(`.pokemon-container`).append(newPokemon)
 
 
 }
