@@ -7,44 +7,78 @@ class APIManager {
         }
 
         getMainUser(){
-                console.log('getMainUser')
+                console.log('getMainUser - is running')
+                $.ajax({
+                    method: "GET",
+                    url: `https://randomuser.me/api/?results=1`,
+                    success:function(mainuser){
+                        const mainuser1 = mainuser.results[0].name.first
+                        console.log(mainuser1)
+                    },
+                    error: function(xhr, text, error){
+                        console.log(text)
+                    }
+                })
 
         }
 
         getFriends(){
-            console.log('getFriends')
-
+            console.log('getFriends - is running')
+            $.ajax({
+                method: "GET",
+                url: `https://randomuser.me/api/?results=7`,
+                success:function(mainuser){
+                    const mainuser1 = mainuser.results[0].name.first
+                    console.log(mainuser1)
+                },
+                error: function(xhr, text, error){
+                    console.log(text)
+                }
+            })
         }
 
         getQuote(){
-            console.log('getQuote')
-
+            console.log('getQuote - is running')
+            $.ajax({
+                method: "GET",
+                url: `https://api.kanye.rest`,
+                success:function(quote){
+                    const quote1 = quote.quote 
+                    console.log(quote1)
+                },
+                error: function(xhr, text, error){
+                    console.log(text)
+                }
+            })
 
         }
 
         // getPokemon(){
+            // $.ajax({
+            //     method: "GET",
+            //     url: `https://api.kanye.rest`,
+            //     success:function(pokemon){
+            //         const pokemon1 = pokemon 
+            //         console.log(pokemon1)
+            //     },
+            //     error: function(xhr, text, error){
+            //         console.log(text)
+            //     }
+            // })
 
 
         // }
 
 
 }
+const apiMainUser = new APIManager()
+apiMainUser.getMainUser()
 
+const apiFriends = new APIManager()
+apiFriends.getFriends()
 
+const apiQuote = new APIManager()
+apiQuote.getQuote()
 
-
-
-
-//         $.ajax
-//         let userData = $.get(`https://randomuser.me/api/`);
-//         userData.done(function(data){
-//         //let users = []
-//         //let mainUser = [picture, a first name & last name, the city and state.]
-//         //let friendsUsers = [first: last:]
-
-//         // for (let user of users){
-
-            
-//         //      // push.data.results[0-6]
-
-//         // }
+// const apiPokemon = new APIManager()
+// apiPokemon.getPokemon()
