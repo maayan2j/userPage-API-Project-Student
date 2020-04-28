@@ -1,18 +1,18 @@
-// const render = new Renderer()
-// const apiManager = new apiManager()
+const render = new Renderer()
+const apiManager = new apiManager()
 
 
 
 
 // Clicking on Load button.
 
-// $('#load').on("click", function() {
-// console.log("Load button was clicked.")
+$('#load').on("click", function() {
+console.log("Load button was clicked.")
 
-//     apiManager.getMainUser()
-//     apiManager.getFriends()
-//     apiManager.getQuote()
-// })
+    apiManager.getMainUser()
+    apiManager.getFriends()
+    apiManager.getQuote()
+})
 
 
 

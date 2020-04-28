@@ -1,42 +1,50 @@
-
-// class Renderer {
-
-//     constructor(){
-//         //Main User 
-//         this.mainUserSource = $(`#user-template`).html()
-//         this.mainUserTemplate = Handlebars.compile(this.mainUserSource)
-//         //Friends 
-//         this.friendsSource = $(`#friends-template`).html()
-//         this.friendsTemplate = Handlebars.compile(this.friendsSource)
-//         //Kanye Quote
-//         this.quoteSource = $(`#quote-template`).html()
-//         this.quoteTemplate = Handlebars.compile(this.qouteSource)
-//         //Pokemon 
-//         // this.pokemonSource = $(`pokemon-template`).html()
-//         // this.sourceTemplate = Handlebars.compile(this.pokemonSource)
-
-//     }
-    
-//     renderQuote(mainUser){
-//         const newMainUser = this.mainUserTemplate(mainUser)
-//         $(`.user-container`).append(newMainUser)
-//     }
-
-    
-//     renderQuote(Friends){
-//         const newFriends = this.friendsTemplate(Friends)
-//         $(`.friends-container`).append(newFriends)
-//     }
-
-
-//     renderQuote(kanyeQuote){
-//         const newQuote = this.squoteTemplate({quote: kanyeQuote})
-//         $(`.quote-container`).append(newQuote)
-//     }
-
-//     // renderPokemon(Pokemon){
-//     //     const newPokemon = this.pokemonTemplate({Pokemon})
-//     //     $(`.pokemon-container`).append(newPokemon)
-
-
-// }
+class Renderer {
+    constructor(getApi) {
+        this.data = getApi
+    }
+    rendererUser() {
+        $(".user-container").empty()
+        const source = $('#user-template').html();
+        const template = Handlebars.compile(source);
+        let user = this.data.allUsers[0]
+        let newHTML = template(user);
+        $(".user-container").append(newHTML);
+        console.log(newHTML)
+    }
+    rendererFriends() {
+        $(".friends").empty()
+        const source = $('#friends-template').html();
+        const template = Handlebars.compile(source);
+        let friends = this.data.allUsers
+        let newHTML = template(friends);
+        $(".friends").append(newHTML);
+        console.log(newHTML)
+    }
+    rendererQuote() {
+        $(".quote-container").empty()
+        const source = $('#quote-template').html();
+        const template = Handlebars.compile(source);
+        let quote = this.data.quote
+        let newHTML = template(quote);
+        $(".quote-container").append(newHTML);
+        console.log(newHTML)
+    }
+    rendererPokemon() {
+        $(".pokemon-container").empty()
+        const source = $('#pokemon-template').html();
+        const template = Handlebars.compile(source);
+        let pokemon = this.data.pokemon
+        let newHTML = template(pokemon);
+        $(".pokemon-container").append(newHTML);
+        console.log(newHTML)
+    }
+    rendereraboutMe() {
+        $(".meat-text").empty()
+        const source = $('#aboutMe-template').html();
+        const template = Handlebars.compile(source);
+        let pokemon = this.data.aboutMe
+        let newHTML = template(pokemon);
+        $(".meat-text").append(newHTML);
+        console.log(newHTML)
+    }
+}
