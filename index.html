@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
+
 <body>
     <div class="container">
         <div class="user-container"></div>
@@ -23,12 +25,48 @@
             </div>
         </div>
         <div class="buttons">
-            <button>Load User Data</button>
-            <button>Display User</button>
+            <button id="load">Load User Data</button>
+            <button id="display">Display User</button>
         </div>
     </div>
+
+
+
+    <script id="user-template" type="text/x-handlebars-template">
+        {{#each mainuser}}
+        <div>{{name.first}}</div>
+        <div>{{last.first}}</div>
+        <div>{{email}}</div>
+        {{/each}}
+
+    </script>
+
+
+    <script id="friends-template" type="text/x-handlebars-template">
+
+        {{#each friends}}
+             <ul>
+              <li>{{name.first}}</li>
+              
+             </ul>
+            {{/each}}
+
+    </script>
+
+
+    <script id="quote-template" type="text/x-handlebars-template">
+        <p>Favorite Quote:</p>
+        <div>{{quote}}  - Kanye West</div>
+
+
+    </script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>

@@ -1,7 +1,5 @@
 const render = new Renderer()
-const apiManager = new apiManager()
-
-
+const apiManager = new APIManager()
 
 
 // Clicking on Load button.
@@ -9,9 +7,10 @@ const apiManager = new apiManager()
 $('#load').on("click", function() {
 console.log("Load button was clicked.")
 
-    apiManager.getMainUser()
-    apiManager.getFriends()
-    apiManager.getQuote()
+    // apiManager.getMainUser()
+    // apiManager.getFriends()
+    apiManager.getData()
+    //console.log(apiManager.data)
 })
 
 
@@ -19,17 +18,18 @@ console.log("Load button was clicked.")
 
 // // Clicking on Display button.
 
-// $('#load').on("click", function() {
-// console.log("Display button was clicked.")
+$('#display').on("click", function() {
+console.log("Display button was clicked.")
+    render.renderAll(apiManager.data)
+    // // const mainuser = apiManager.data.mainuser
+    // // render.renderMainUser(mainuser)
+    // // const friends = apiManager.data.friends
+    // // render.renderFriends(friends)
+    // const quote = apiManager.data.quote
+    // console.log(quote)
+    // render.renderQuote(quote)
 
-//     const mainuser = apiManager.data.mainuser
-//     render.renderMainUser(mainuser)
-//     const friends = apiManager.data.friends
-//     render.renderFriends(friends)
-//     const quote = apiManager.data.quote
-//     render.renderQuote(quote)
-
-// })
+})
 
 
 
