@@ -31,6 +31,19 @@ class Renderer {
         $(".quote-container").append(newHTML);
         //console.log(newHTML)
     }
+
+    rendererQuote(meat) {
+        console.log(meat)
+        $(".meat-container").empty()
+        const source = $('#meat-template').html();
+        const template = Handlebars.compile(source);
+        let newHTML = template({meat});
+        $(".meat-container").append(newHTML);
+       
+    }
+
+
+
     // rendererPokemon() {
     //     $(".pokemon-container").empty()
     //     const source = $('#pokemon-template').html();

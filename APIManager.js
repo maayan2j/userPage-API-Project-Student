@@ -60,6 +60,22 @@ class APIManager {
             
         }
 
+        getMeat() {
+            console.log('getMeat - is running')
+            $.ajax({
+                method: "GET",
+                url: 'https://baconipsum.com/api/?type=meat&sentences=3&format=text',
+                success: (meat) => {
+                    const meat1 = meat
+                    console.log(meat1)
+                    this.data["meat"] = meat1;
+                },
+                error: function (xhr, text, error){
+                    console.log("no meat for you today")
+                }
+    
+            })
+        }
         
 
 
@@ -85,8 +101,7 @@ class APIManager {
             this.getFriends()
             this.getQuote()
             this.getMainUser()
-            //this.data.newpokemon = getPokemon()
-       
+            this.getMeat()       
             
         }
       
